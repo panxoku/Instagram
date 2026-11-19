@@ -1,13 +1,35 @@
 {
   "mcpServers": {
     "meta-ads": {
-      "command": "uvx",
-      "args": ["meta-ads-manager-mcp@0.2.0"],
+      "command": "uv",
+      "args": [
+        "run",
+        "--quiet",
+        "--directory",
+        "tools/meta-ads-mcp",
+        "meta-ads-manager-mcp"
+      ],
       "env": {
         "META_ACCESS_TOKEN": "${META_ACCESS_TOKEN}",
         "META_AD_ACCOUNT_ID": "${META_AD_ACCOUNT_ID}",
         "META_PAGE_ID": "${META_PAGE_ID}",
+        "META_INSTAGRAM_USERNAME": "${META_INSTAGRAM_USERNAME:-MagliaCL}",
+        "META_INSTAGRAM_USER_ID": "${META_INSTAGRAM_USER_ID:-}",
         "META_ADS_MAX_DAILY_BUDGET_CENTS": "${META_ADS_MAX_DAILY_BUDGET_CENTS:-5000}"
+      }
+    },
+    "meta-instagram": {
+      "command": "node",
+      "args": [
+        "tools/meta-mcp/dist/index.js"
+      ],
+      "env": {
+        "INSTAGRAM_ACCESS_TOKEN": "${INSTAGRAM_ACCESS_TOKEN:-}",
+        "INSTAGRAM_USER_ID": "${INSTAGRAM_USER_ID:-}",
+        "INSTAGRAM_PAGE_ID": "${INSTAGRAM_PAGE_ID:-}",
+        "INSTAGRAM_MESSAGING_ACCESS_TOKEN": "${INSTAGRAM_MESSAGING_ACCESS_TOKEN:-}",
+        "META_APP_ID": "${META_APP_ID:-}",
+        "META_APP_SECRET": "${META_APP_SECRET:-}"
       }
     }
   }

@@ -1,0 +1,3 @@
+[submodule "tools/meta-mcp"]
+	path = tools/meta-mcp
+	url = https://github.com/panxoku/meta-mcp
