@@ -30,3 +30,19 @@ Vendored copies of Attainment Labs' MIT-licensed tools, with Instagram identity 
 uv tool install --force ./tools/meta-ads-cli   # CLI: `meta-ads`
 # MCP: configured in ../.mcp.json (runs from tools/meta-ads-mcp)
 ```
+
+## meta-mcp (organic Instagram: posts, reels, stories, comments, DMs, insights)
+
+Git submodule `tools/meta-mcp` → https://github.com/panxoku/meta-mcp (pinned commit). Configured in `../.mcp.json` as `meta-instagram`.
+
+```bash
+git submodule update --init tools/meta-mcp
+(cd tools/meta-mcp && npm ci && npm run build)
+```
+
+Env vars (set in the cloud environment, never commit):
+- `INSTAGRAM_ACCESS_TOKEN`: can be the same Meta user token as `META_ACCESS_TOKEN` if it also has
+  `instagram_basic`, `instagram_content_publish`, `instagram_manage_comments`, `instagram_manage_insights`.
+- `INSTAGRAM_USER_ID`: @MagliaCL's ID — `meta-ads instagram` prints it.
+- `INSTAGRAM_PAGE_ID` + `INSTAGRAM_MESSAGING_ACCESS_TOKEN`: only for DMs.
+- `META_APP_ID` / `META_APP_SECRET`: only for token/webhook tools.
