@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "meta-ads": {
+      "command": "uvx",
+      "args": ["meta-ads-manager-mcp@0.2.0"],
+      "env": {
+        "META_ACCESS_TOKEN": "${META_ACCESS_TOKEN}",
+        "META_AD_ACCOUNT_ID": "${META_AD_ACCOUNT_ID}",
+        "META_PAGE_ID": "${META_PAGE_ID}",
+        "META_ADS_MAX_DAILY_BUDGET_CENTS": "${META_ADS_MAX_DAILY_BUDGET_CENTS:-5000}"
+      }
+    }
+  }
+}
